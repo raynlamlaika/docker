@@ -29,25 +29,10 @@ typedef struct childM
 } childMetadata;
 
 const char *cgroupPath = "/sys/fs/cgroup";
-
-int Container::run(const std::vector<std::string>& command)
-{
-	
-	
-}
-
-
-int childWork(void* arg)
-{
-
-
-}
-
 void print(std::string const helper)
 {
 	std::cout  << helper << std::endl;
 }
-
 bool write_to_file(const std::string& path, const std::string& content)
 {
     std::ofstream file(path, std::ios::app);
@@ -60,6 +45,23 @@ bool write_to_file(const std::string& path, const std::string& content)
     file.close();
     return true;
 }
+
+int childWork(void* arg) {
+    print("👶 Inside child process!");
+
+    // Change hostname (UTS namespace)
+    sethostname("mini-docker", 10);
+    print("Hostname changed inside container");
+
+    // Show PID inside container
+    std::cout << "Child PID inside container: " << getpid() << std::endl;
+
+    // You can run bash or a test program here
+    execlp("/bin/bash", "/bin/bash", NULL);
+
+    return 0;
+}
+
 
 
 void setup_cgroups(pid_t pid)
@@ -109,9 +111,6 @@ pid_t create_isolated_process()
 int main(int ac, char*ar[])
 {
 	std::cout << "start of the program"<< std::endl;
-	
-
-
 
 }
 
