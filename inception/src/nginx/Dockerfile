@@ -6,7 +6,7 @@ FROM alpine:$version
 
 
 
-RUN apk update  && apk upgrade && apk add ngnix && apk add openssl
+RUN apk update  && apk upgrade && apk add nginx && apk add openssl
 
 
 COPY $CONFPATH /etc/nginx/nginx.conf
