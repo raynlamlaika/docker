@@ -1,5 +1,5 @@
 ARG version=latst #the the image to run container
-ARG CONFPATH=/ee/e/e/
+ARG CONFPATH=/home/rayne/inception/inception/src/nginx/confg/nginx.conf
 
 FROM alpine:$version
 
