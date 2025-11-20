@@ -13,10 +13,12 @@ COPY $CONFPATH /etc/nginx/nginx.conf
 
 #need in a scripte right here 
 
-#here is just the syntax
-RUN openssl genrsa -out your_domain.key 2048
+#here is just the syntax for the prv key
+RUN openssl genrsa -out /etc/nginx/ssl/server.key 2048
 
-RUN openssl req -new -key your_domain.key -out your_domain.csr
+#for the certificate
+RUN openssl req -new -key /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.csr
+
 
 
 
