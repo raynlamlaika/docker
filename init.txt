@@ -1,1 +1,14 @@
 hello docker
+
+
+
+in usefule docker commands run the bash inside the containe:
+docker run -it containerName sh
+
+
+
+to build img
+docker build -t  name {dir}
+
+to run imag 
+docker run -p  [port]  nameimag
