@@ -3,12 +3,9 @@ ARG version=latest
 FROM alpine:${version}
 
 
-
-RUN apk update && apk upgrade && apk add --no-cache \
-    php php-fpm php-mysqli php-json php-curl php-dom \
-    php-exif php-fileinfo php-mbstring php-openssl php-zip \
+RUN apk add --no-cache php php-fpm php-mysqli php-json php-curl php-dom \
+    php-exif php-fileinfo php-mbstring php-openssl php-zip php-phar \
     wget curl tar mariadb-client
-
 
 
 RUN sed -i 's|listen = 127.0.0.1:9000|listen = 9000|' \
@@ -28,5 +25,5 @@ RUN chmod +x /setup.sh
 
 EXPOSE 9000
 
-CMD ["setup.sh"]
+CMD [ "/bin/sh" , "/setup.sh"]
 
