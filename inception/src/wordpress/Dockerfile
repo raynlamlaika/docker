@@ -11,6 +11,8 @@ RUN apk add --no-cache php php-fpm php-mysqli php-json php-curl php-dom \
 RUN sed -i 's|listen = 127.0.0.1:9000|listen = 9000|' \
     /etc/php83/php-fpm.d/www.conf
 
+COPY php-memory.ini /etc/php83/conf.d/memory-limit.ini
+
 
 RUN mkdir -p /var/www/html
 
