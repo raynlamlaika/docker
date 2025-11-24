@@ -4,4 +4,12 @@ FROM alpine:${version}
 
 
 
-RUN apk update && apk upgrade && 
+RUN apk update && apk upgrade && add --no-cache \
+	
+
+
+
+
+
+
+COPY  wordpress /var/www/html
