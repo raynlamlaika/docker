@@ -4,15 +4,15 @@ FROM alpine:${version}
 
 
 
-RUN apk update && apk upgrade && add --no-cache \
-	php81 php81-fpm php81-mysqli php81-json php81-curl php81-dom \
-    php81-exif php81-fileinfo php81-mbstring php81-openssl php81-zip \
-    wget curl tar mariadb-client	
+RUN apk update && apk upgrade && apk add --no-cache \
+    php php-fpm php-mysqli php-json php-curl php-dom \
+    php-exif php-fileinfo php-mbstring php-openssl php-zip \
+    wget curl tar mariadb-client
 
 
 
 RUN sed -i 's|listen = 127.0.0.1:9000|listen = 9000|' \
-    /etc/php81/php-fpm.d/www.conf
+    /etc/php83/php-fpm.d/www.conf
 
 
 RUN mkdir -p /var/www/html
