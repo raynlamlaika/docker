@@ -12,3 +12,26 @@ docker build -t  name {dir}
 
 to run imag 
 docker run -p  [port]  nameimag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
